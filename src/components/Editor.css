@@ -1,0 +1,4 @@
+.parsed-lines-container {
+  display: flex;
+  flex-direction: column;
+}

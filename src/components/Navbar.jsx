@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const Navbar = (props) => {
+export default function Navbar(props) {
   const { activeTab, setActiveTab} = props;
 
   const tabNames = [
