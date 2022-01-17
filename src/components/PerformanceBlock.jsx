@@ -47,10 +47,10 @@ export default function PerformanceBlock(props) {
         
         <div className="btn-group">
           <button className="btn btn-danger btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            🗑
+            Delete Block
           </button>
           <ul className="dropdown-menu">
-            <li className="dropdown-item">Delete This Line</li>
+            <li className="dropdown-item">Delete This Block</li>
           </ul>
         </div>
       </div>
