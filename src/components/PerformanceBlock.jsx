@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PerformanceLine from './PerformanceLine';
 import './PerformanceBlock.css';
 
 
 export default function PerformanceBlock(props) {
-  const {index, lineData, setPerformanceLines} = props;
-  const [lineType, setLineType] = useState('Illusion');
+  const {index, type, lineData, performanceLines, setPerformanceLines} = props;
+  const [lineType, setLineType] = useState(type);
   const [blockLines, setBlockLines] = useState([]);
 
   const lineTypeOptions = [
@@ -22,6 +22,18 @@ export default function PerformanceBlock(props) {
     setBlockLines(oldLines);
   }
 
+  const changeLineType = (typeOptionsIndex) => {
+    setLineType(lineTypeOptions[typeOptionsIndex]);
+  }
+
+  useEffect(() => {
+    const newPerfLines = performanceLines.map(line => {
+      return {...line};
+    })
+    newPerfLines[index].type = lineType;
+    setPerformanceLines(newPerfLines);
+  }, [lineType])
+
 
   return (
     <div className='card'>
@@ -31,8 +43,8 @@ export default function PerformanceBlock(props) {
             {lineType}
           </button>
           <ul className="dropdown-menu">
-            <li className="dropdown-item" onClick={() => {setLineType(lineTypeOptions[0])}}>{lineTypeOptions[0]}</li>
-            <li className="dropdown-item" onClick={() => {setLineType(lineTypeOptions[1])}}>{lineTypeOptions[1]}</li>
+            <li className="dropdown-item" onClick={() => {changeLineType(0)}}>{lineTypeOptions[0]}</li>
+            <li className="dropdown-item" onClick={() => {changeLineType(1)}}>{lineTypeOptions[1]}</li>
           </ul>
         </div>
 

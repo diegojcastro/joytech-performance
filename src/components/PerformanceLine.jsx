@@ -25,7 +25,7 @@ export default function PerformanceLine(props) {
           placeholder='Write your performance here' 
           value={lineText} 
           onChange={(e) => setLineText(e.target.value)}
-          style={{width: '100%'}}
+          style={{width: '100%', color}}
         />
         <div className="btn-group">
           <button className="btn btn-light btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">

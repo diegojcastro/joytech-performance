@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PerformanceBlock from "./PerformanceBlock";
 import './Editor.css'
 
@@ -8,15 +8,23 @@ export default function Editor(props) {
   const {performanceLines, setPerformanceLines} = props;
 
   const addLine = () => {
-    setPerformanceLines([...performanceLines, {type: 'performance', color: '#aabbcc', text: 'Write something awesome'}]);
+    const oldLines = performanceLines.map( line => {
+      return {...line};
+    });
+
+    setPerformanceLines([...oldLines, {type: 'Illusion', blockData: []}]);
     console.log('lines are now:',performanceLines);
   }
 
   const parsedLines = performanceLines.map( (line, index) => {
     return (
-      <PerformanceBlock key={index} index={index} lineData={line} setPerformanceLines={setPerformanceLines}/>
+      <PerformanceBlock key={index} index={index} type={line.type} blockData={line.blockData} performanceLines={performanceLines} setPerformanceLines={setPerformanceLines}/>
     )
   })
+
+  useEffect(() => {
+    console.log('Performance lines are now:', performanceLines)
+  }, [performanceLines])
 
   return (
     <div className="editor-root">
