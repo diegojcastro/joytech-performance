@@ -14,12 +14,12 @@ export default function Editor(props) {
 
   const parsedLines = performanceLines.map( (line, index) => {
     return (
-      <PerformanceLine key={index} lineData={line} />
+      <PerformanceLine key={index} index={index} lineData={line} setPerformanceLines={setPerformanceLines}/>
     )
   })
 
   return (
-    <>
+    <div className="editor-root">
       <h1>Write your performance here!</h1>
 
       <div className="parsed-lines-container" >
@@ -29,6 +29,6 @@ export default function Editor(props) {
       <br /> 
 
       <button type="button" class="btn btn-primary" onClick={addLine}>Add Line</button>
-    </>
+    </div>
   )
 }
