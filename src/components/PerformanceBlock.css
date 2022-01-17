@@ -1,0 +1,24 @@
+.performance-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+
+.performance-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.color-and-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}
+
+.add-perf-text-button {
+  width: fit-content;
+  padding: 0 1rem;
+}

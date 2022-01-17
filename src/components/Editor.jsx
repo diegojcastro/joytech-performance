@@ -1,5 +1,5 @@
 import { useState } from "react"
-import PerformanceLine from "./PerformanceLine";
+import PerformanceBlock from "./PerformanceBlock";
 import './Editor.css'
 
 
@@ -14,7 +14,7 @@ export default function Editor(props) {
 
   const parsedLines = performanceLines.map( (line, index) => {
     return (
-      <PerformanceLine key={index} index={index} lineData={line} setPerformanceLines={setPerformanceLines}/>
+      <PerformanceBlock key={index} index={index} lineData={line} setPerformanceLines={setPerformanceLines}/>
     )
   })
 
@@ -28,7 +28,7 @@ export default function Editor(props) {
 
       <br /> 
 
-      <button type="button" class="btn btn-primary" onClick={addLine}>Add Line</button>
+      <button type="button" className="btn btn-primary" onClick={addLine}>Add Block</button>
     </div>
   )
 }
